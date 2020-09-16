@@ -1,8 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AppService } from './app.service';
 import { Subscription, Observable, Subject, BehaviorSubject, ReplaySubject, AsyncSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
+import { ObservableStore } from '@codewithdan/observable-store';
+
+import { AppService } from './app.service';
+import { StateStoreExampleService } from './state-store-example.service';
+
+ObservableStore.initializeState({});
 
 @Component({
     selector: 'app-root',
@@ -19,7 +24,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private formSubscription: Subscription;
 
     constructor(
-        private appService: AppService
+        private appService: AppService,
+        private stateStoreExampleService: StateStoreExampleService
     ) {}
 
     public ngOnInit(): void {
@@ -60,6 +66,12 @@ export class AppComponent implements OnInit, OnDestroy {
         // this.serviceText$ = this.appService.title$;
         // setInterval(() => {
         //     this.appService.updateTitle();
+        // }, 3000);
+
+        // state store example
+        // this.serviceText$ = this.stateStoreExampleService.stateChanged.pipe(map(state => state.title));
+        // setInterval(() => {
+        //     this.stateStoreExampleService.getNewTitle();
         // }, 3000);
     }
 

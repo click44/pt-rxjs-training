@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
+import { StateStoreExampleService } from './state-store-example.service';
 
 @NgModule({
     declarations: [
@@ -14,7 +15,8 @@ import { AppService } from './app.service';
         ReactiveFormsModule
     ],
     providers: [
-        AppService
+        AppService,
+        StateStoreExampleService
     ],
     bootstrap: [AppComponent]
 })
